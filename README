@@ -1,0 +1,49 @@
+fetchfile
+
+This class downloads and decompresses files as well as managing their permissions.
+
+This is a very simple module that downloads files (if they are not already present at the destination) and then moves or decompresses those files and sets the resulting files/directories ownerships and permissions.
+
+We created this module because we found our selves using the same pattern of multiple exec executions over and over again in our manifests and decided it would be better to build a resource type to handle these common sorts of operations.
+
+Examples:
+
+	fetchfile{"fetchafile":
+		downloadurl=><url to download a file from>,
+		downloadfile=><name of the file the download will create>,
+		downloadto=><where to download the file too>,
+		desintationpath=><where to put the decompressed or moved version of the file after it's been downloaded>,
+		destinationfile=><name of the file or directory that the decompressed file creates>,
+		owner=><owner of destination file>,
+		group=><group of destination file>,
+		mode=><permissions of destination file>
+	}
+
+
+This module has been tested in debian squeeze with tar.gz files, if you use it in another flavor or other compression formats and it works fine as is or if you have improvements/issues/fixes please let us know.
+
+Authors
+-------
+Will Ferrer, Ethan Brooks
+
+Licensees
+-------
+2012 developed under license for Switchsoft LLC http://www.switchsoft.com a "Direct response telephony company" as part of it's "VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales" and Run the Business Systems LLC a "Technology development investment group" as part of it's "PHP, Javascript rapid application development framework and MySQL analysis tools"
+
+License
+-------
+Licensed under the terms of the Open Source LGPL 3.0 license.  
+
+
+Contact
+-------
+will.ferrer@runthebusiness.net
+
+Support
+-------
+
+Please send tickets and issues to our contact email address or at: https://github.com/runthebusiness/puppet-fetchfile/issues
+
+Project Url
+-------
+https://github.com/runthebusiness/puppet-fetchfile

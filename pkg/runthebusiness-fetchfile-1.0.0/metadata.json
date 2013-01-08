@@ -1,0 +1,21 @@
+{
+  "description": "fetchfile\n\nThis class downloads and decompresses files as well as managing their permissions.\n\nThis is a very simple module that downloads files (if they are not already present at the destination) and then moves or decompresses those files and sets the resulting files/directories ownerships and permissions.\n\nWe created this module because we found our selves using the same pattern of multiple exec executions over and over again in our manifests and decided it would be better to build a resource type to handle these common sorts of operations.\n\nExamples:\n\n\tfetchfile{\"fetchafile\":\n\t\tdownloadurl=><url to download a file from>,\n\t\tdownloadfile=><name of the file the download will create>,\n\t\tdownloadto=><where to download the file too>,\n\t\tdesintationpath=><where to put the decompressed or moved version of the file after it's been downloaded>,\n\t\tdestinationfile=><name of the file or directory that the decompressed file creates>,\n\t\towner=><owner of destination file>,\n\t\tgroup=><group of destination file>,\n\t\tmode=><permissions of destination file>\n\t}\n\n\nThis module has been tested in debian squeeze with tar.gz files, if you use it in another flavor or other compression formats and it works fine as is or if you have improvements/issues/fixes please let us know.\n\nAuthors\n-------\nWill Ferrer, Ethan Brooks\n\nLicensees\n-------\n2012 developed under license for Switchsoft LLC http://www.switchsoft.com a \"Direct response telephony company\" as part of it's \"VOIP Call distribution, ROI analysis platform, call recording, and IVR for inbound and outbound sales\" and Run the Business Systems LLC a \"Technology development investment group\" as part of it's \"PHP, Javascript rapid application development framework and MySQL analysis tools\"\n\nLicense\n-------\nLicensed under the terms of the Open Source LGPL 3.0 license.  \n\n\nContact\n-------\nwill.ferrer@runthebusiness.net\n\nSupport\n-------\n\nPlease send tickets and issues to our contact email address or at: https://github.com/runthebusiness/puppet-fetchfile/issues\n\nProject Url\n-------\nhttps://github.com/runthebusiness/puppet-fetchfile\n",
+  "summary": "This class downloads and decompresses files as well as managing their permissions.",
+  "source": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "checksums": {
+    "README": "57035d0c2d4d55e391ef3f69d3108091",
+    "Modulefile": "6f9b719ef209c1611760c9e827dc1c63",
+    "manifests/init.pp": "188ed56fd9f453764d43152973e118d3"
+  },
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "author": "runthebusiness",
+  "name": "runthebusiness-fetchfile",
+  "project_page": "https://github.com/runthebusiness/puppet-fetchfile",
+  "version": "1.0.0"
+}
