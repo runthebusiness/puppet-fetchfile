@@ -73,7 +73,7 @@ define fetchfile(
     path      => $execlaunchpaths,
     creates   => $destinationcreates,
     logoutput => on_failure,
-    require   => exec["${name}_fetchfiledownload"]
+    require   => Exec["${name}_fetchfiledownload"]
   }
 
   # Mod file
@@ -83,7 +83,7 @@ define fetchfile(
     group   => $group,
     mode    => $mode,
     recurse => $recurse,
-    require => exec["${name}_fetchfiledecompress"]
+    require => Exec["${name}_fetchfiledecompress"]
   }
 
   if $execrecurse == true {
@@ -92,7 +92,7 @@ define fetchfile(
       cwd       => $executefrom,
       path      => $execlaunchpaths,
       logoutput => on_failure,
-      require   => file["${name}_fetchfiledecompress"]
+      require   => File["${name}_fetchfiledecompress"]
     }
 
     exec {"${name}_chowndestinationfile":
@@ -100,7 +100,7 @@ define fetchfile(
       cwd       => $executefrom,
       path      => $execlaunchpaths,
       logoutput => on_failure,
-      require   => file["${name}_fetchfiledecompress"]
+      require   => File["${name}_fetchfiledecompress"]
     }
   }
 }
