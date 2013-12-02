@@ -7,7 +7,7 @@
 #  - downloadfile: the file that wget makes (Default: undef)
 #  - downloadto: where to download the file too (Default: undef)
 #  - compression: the type of compression the file is in, may be: none, zip, gz, targz or tar (Default: 'tar.gz')
-#  - desintationpath: where to copy the file to once it is downloaded or maybe decompressed (Default: undef)
+#  - destinationpath: where to copy the file to once it is downloaded or maybe decompressed (Default: undef)
 #  - destinationfile: the file that will be created when the downloaded file is decompressed or moved (Default: undef)
 #  - owner: the owner that the destination file should have (Default: 'root')
 #  - group: the group that the destination file should have (Default: 'root')
@@ -20,7 +20,7 @@ define fetchfile(
 	$downloadfile=undef,
 	$downloadto=undef,
 	$compression='tar.gz',
-	$desintationpath=undef,
+	$destinationpath=undef,
 	$destinationfile=undef,
 	$owner='root',
 	$group='root',
@@ -37,7 +37,7 @@ define fetchfile(
   $wgetcreates = "${downloadto}${downloadfile}"
   
   # destination creates
-  $destinationcreates = "${desintationpath}${destinationfile}"
+  $destinationcreates = "${destinationpath}${destinationfile}"
   
     # commands to be run by exec
   $wgetcommand ="wget -O '${wgetcreates}' '${downloadurl}'"
@@ -46,15 +46,15 @@ define fetchfile(
 
   # the destination file command
   if $compression == 'tar.gz' {
-    $destinationcommand = "tar -C '${desintationpath}' -zxvf '${wgetcreates}'"
+    $destinationcommand = "tar -C '${destinationpath}' -zxvf '${wgetcreates}'"
   } elsif $compression == 'tar' {
-    $destinationcommand = "tar -C '${desintationpath}' -xvf '${wgetcreates}'"
+    $destinationcommand = "tar -C '${destinationpath}' -xvf '${wgetcreates}'"
   } elsif $compression == 'zip' {
-    $destinationcommand = "unzip '${wgetcreates}' -d '${desintationpath}'"
+    $destinationcommand = "unzip '${wgetcreates}' -d '${destinationpath}'"
   } elsif $compression == 'gz' {
-    $destinationcommand = "gzip -d '${wgetcreates}' > '${desintationpath}'"
+    $destinationcommand = "gzip -d '${wgetcreates}' > '${destinationpath}'"
   } else {
-    $destinationcommand = "mv '${wgetcreates}' '${desintationpath}'"
+    $destinationcommand = "mv '${wgetcreates}' '${destinationpath}'"
   }
 
   # downloads file

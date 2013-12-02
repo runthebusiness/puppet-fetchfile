@@ -20,7 +20,7 @@ Examples:
 		downloadurl=><url to download a file from>,
 		downloadfile=><name of the file the download will create>,
 		downloadto=><where to download the file too>,
-		desintationpath=><where to put the decompressed or moved version of the file after it\'s been downloaded>,
+		destinationpath=><where to put the decompressed or moved version of the file after it\'s been downloaded>,
 		destinationfile=><name of the file or directory that the decompressed file creates>,
 		owner=><owner of destination file>,
 		group=><group of destination file>,
