@@ -34,10 +34,10 @@ define fetchfile(
   $executefrom = "/tmp/"
   
   # creates tests for commandline execution
-  $wgetcreates = "${downloadto}${downloadfile}"
+  $wgetcreates = "${downloadto}/${downloadfile}"
   
   # destination creates
-  $destinationcreates = "${destinationpath}${destinationfile}"
+  $destinationcreates = "${destinationpath}/${destinationfile}"
   
     # commands to be run by exec
   $wgetcommand ="wget -O '${wgetcreates}' '${downloadurl}'"
